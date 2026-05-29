@@ -9,13 +9,14 @@ export default defineConfig({
     logo: '/logo.svg',
     nav: [
       { text: '学习路线', link: '/guide/roadmap' },
-      { text: '核心概念', link: '/concepts/rendering-models' },
+      { text: '核心原理', link: '/concepts/rendering-models' },
       { text: '渐进式 Demo', link: '/demos/demo-01-static-server' },
-      { text: '最小实战', link: '/practice/minimal-project' }
+      { text: '最终项目', link: '/practice/minimal-project' },
+      { text: '来源', link: '/reference/resources' }
     ],
     sidebar: [
       {
-        text: '开始',
+        text: '学习路线',
         items: [
           { text: '课程说明', link: '/' },
           { text: '为什么这样学', link: '/guide/why' },
@@ -23,7 +24,7 @@ export default defineConfig({
         ]
       },
       {
-        text: '核心概念',
+        text: '核心原理',
         items: [
           { text: '渲染模式总览', link: '/concepts/rendering-models' },
           { text: '缓存地图', link: '/concepts/cache-map' },
@@ -42,11 +43,16 @@ export default defineConfig({
         ]
       },
       {
-        text: '深入',
+        text: '最终项目',
         items: [
-          { text: 'GitHub 源码阅读导航', link: '/source-reading/nextjs-source-map' },
           { text: '最小实战项目', link: '/practice/minimal-project' },
-          { text: '上线前检查清单', link: '/reference/checklist' },
+          { text: 'GitHub 源码阅读导航', link: '/source-reading/nextjs-source-map' },
+          { text: '上线前检查清单', link: '/reference/checklist' }
+        ]
+      },
+      {
+        text: '来源',
+        items: [
           { text: '术语表', link: '/reference/glossary' },
           { text: '官方资料', link: '/reference/resources' }
         ]
@@ -64,4 +70,3 @@ export default defineConfig({
     }
   }
 })
-

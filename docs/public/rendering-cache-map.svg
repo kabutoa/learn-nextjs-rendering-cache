@@ -1,0 +1,28 @@
+<svg width="620" height="420" viewBox="0 0 620 420" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Next.js rendering and cache learning map</title>
+  <desc id="desc">A diagram showing route, rendering, cache, revalidation, and demo project learning flow.</desc>
+  <rect width="620" height="420" rx="28" fill="#F8FAFC"/>
+  <rect x="1" y="1" width="618" height="418" rx="27" stroke="#D8E4EA" stroke-width="2"/>
+  <rect x="56" y="52" width="508" height="64" rx="14" fill="#0F172A"/>
+  <text x="84" y="91" fill="#F8FAFC" font-family="Arial, Microsoft YaHei, sans-serif" font-size="22" font-weight="700">Next.js 渲染与缓存学习地图</text>
+  <rect x="58" y="154" width="144" height="70" rx="12" fill="#E0F2FE" stroke="#38BDF8"/>
+  <text x="83" y="183" fill="#075985" font-family="Arial, Microsoft YaHei, sans-serif" font-size="16" font-weight="700">Route</text>
+  <text x="83" y="206" fill="#0F172A" font-family="Arial, Microsoft YaHei, sans-serif" font-size="14">App Router</text>
+  <rect x="238" y="154" width="144" height="70" rx="12" fill="#ECFDF5" stroke="#22C55E"/>
+  <text x="263" y="183" fill="#166534" font-family="Arial, Microsoft YaHei, sans-serif" font-size="16" font-weight="700">Render</text>
+  <text x="263" y="206" fill="#0F172A" font-family="Arial, Microsoft YaHei, sans-serif" font-size="14">RSC / PPR</text>
+  <rect x="418" y="154" width="144" height="70" rx="12" fill="#FFF7ED" stroke="#F59E0B"/>
+  <text x="443" y="183" fill="#92400E" font-family="Arial, Microsoft YaHei, sans-serif" font-size="16" font-weight="700">Cache</text>
+  <text x="443" y="206" fill="#0F172A" font-family="Arial, Microsoft YaHei, sans-serif" font-size="14">use cache</text>
+  <path d="M202 189H238" stroke="#94A3B8" stroke-width="2" stroke-linecap="round"/>
+  <path d="M382 189H418" stroke="#94A3B8" stroke-width="2" stroke-linecap="round"/>
+  <rect x="112" y="276" width="178" height="72" rx="12" fill="#FFFFFF" stroke="#D8E4EA"/>
+  <text x="138" y="305" fill="#0F172A" font-family="Arial, Microsoft YaHei, sans-serif" font-size="16" font-weight="700">Revalidation</text>
+  <text x="138" y="328" fill="#475569" font-family="Arial, Microsoft YaHei, sans-serif" font-size="14">updateTag / revalidateTag</text>
+  <rect x="330" y="276" width="178" height="72" rx="12" fill="#FFFFFF" stroke="#D8E4EA"/>
+  <text x="356" y="305" fill="#0F172A" font-family="Arial, Microsoft YaHei, sans-serif" font-size="16" font-weight="700">Minimal Demo</text>
+  <text x="356" y="328" fill="#475569" font-family="Arial, Microsoft YaHei, sans-serif" font-size="14">run, observe, repeat</text>
+  <path d="M310 224L218 276" stroke="#94A3B8" stroke-width="2" stroke-linecap="round"/>
+  <path d="M490 224L438 276" stroke="#94A3B8" stroke-width="2" stroke-linecap="round"/>
+  <path d="M290 312H330" stroke="#94A3B8" stroke-width="2" stroke-linecap="round"/>
+</svg>
