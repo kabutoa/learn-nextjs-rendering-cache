@@ -11,6 +11,7 @@
     "example:build": "npm --prefix examples/minimal-next-cache run build"
   },
   "devDependencies": {
+    "mermaid": "^11.6.0",
     "vitepress": "latest"
   }
 }

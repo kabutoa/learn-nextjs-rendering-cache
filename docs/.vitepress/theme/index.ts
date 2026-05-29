@@ -1,5 +1,10 @@
 import DefaultTheme from 'vitepress/theme'
-import './style.css'
+import Mermaid from './Mermaid.vue'
+import './custom.css'
 
-export default DefaultTheme
-
+export default {
+  extends: DefaultTheme,
+  enhanceApp({ app }) {
+    app.component('Mermaid', Mermaid)
+  }
+}

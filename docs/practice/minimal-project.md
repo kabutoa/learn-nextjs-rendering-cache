@@ -1,42 +1,77 @@
-# 最小实战项目
+# 最小实战项目总览
 
-仓库里已经包含一个可运行的最小 Next.js 项目：
+最终项目是一个最小商品目录应用，技术栈是 Next.js App Router + TypeScript。
+
+它不是为了展示完整业务功能，而是为了把渲染与缓存机制压缩到一个足够小、能反复观察的教学项目里。
+
+## 功能目标
+
+| 功能 | 是否实现 | 说明 |
+| --- | --- | --- |
+| 静态页面外壳 | 是 | 首页主体尽量保持可预渲染 |
+| 动态请求信息 | 是 | 读取 `headers()`，演示请求时动态区域 |
+| Streaming | 是 | 用 `<Suspense>` 包住动态区和慢数据区 |
+| 缓存商品列表 | 是 | 用 `'use cache'`、`cacheLife`、`cacheTag` |
+| 新增商品表单 | 是 | 用 Server Action 修改内存数据 |
+| Tag 失效 | 是 | 用 `updateTag('products')` 让列表立即过期 |
+| 构建验收 | 是 | 通过 `next build` 观察 PPR 输出 |
+
+## 架构
+
+```mermaid
+flowchart TB
+  Page["src/app/page.tsx"] --> Shell["静态页面外壳"]
+  Page --> Runtime["RuntimePanel"]
+  Page --> ProductList["ProductList"]
+  Page --> Form["新增商品表单"]
+  Runtime --> Headers["headers()"]
+  ProductList --> Catalog["getProducts()"]
+  Catalog --> Cache["use cache + cacheLife + cacheTag"]
+  Form --> Action["createProduct()"]
+  Action --> Store["addProduct()"]
+  Action --> Revalidate["updateTag('products')"]
+  Revalidate --> Cache
+```
+
+## 和前面 Demo 的关系
+
+| 机制 | Demo | 最终项目 |
+| --- | --- | --- |
+| Server Component | Demo 01 | `src/app/page.tsx` |
+| Streaming | Demo 02 | `<Suspense>` 包住动态区 |
+| Cache Components | Demo 03 | `src/lib/catalog.ts` |
+| Tag 失效 | Demo 04 | `src/app/actions.ts` |
+
+## 目录
 
 ```text
-examples/minimal-next-cache
+examples/minimal-next-cache/
+├─ src/
+│  ├─ app/
+│  │  ├─ actions.ts
+│  │  ├─ globals.css
+│  │  ├─ layout.tsx
+│  │  └─ page.tsx
+│  ├─ components/
+│  │  └─ Counter.tsx
+│  └─ lib/
+│     └─ catalog.ts
+├─ next.config.ts
+├─ package.json
+└─ tsconfig.json
 ```
 
-## 运行
+## 两种学习方式
+
+你可以直接运行完整项目：
 
 ```bash
-cd examples/minimal-next-cache
-npm install
-npm run dev
+npm run example:dev
 ```
 
-打开终端显示的本地地址。
+也可以按后面的 Step 从空目录手写一遍。推荐第二种，因为缓存问题只有自己拆开观察，才真的会记住。
 
-## 你会看到什么
+## 分步教程
 
-这个项目包含四个部分：
-
-- 静态页面外壳
-- 请求时读取的动态面板
-- 使用 `'use cache'` 的商品列表
-- 使用 Server Action 和 `updateTag('products')` 的新增商品表单
-
-## 学习任务
-
-1. 第一次打开页面，观察商品列表加载时间。
-2. 刷新页面，观察缓存后的速度变化。
-3. 新增一条商品，观察列表是否立刻更新。
-4. 注释掉 `src/app/actions.ts` 中的 `updateTag('products')`，再次新增商品。
-5. 恢复 `updateTag`，再思考为什么 tag 比路径失效更适合这类列表数据。
-
-## 关键文件
-
-- `src/lib/catalog.ts`：缓存数据读取和内存数据源
-- `src/app/actions.ts`：Server Action 与 tag 失效
-- `src/app/page.tsx`：静态外壳、Streaming 动态区和缓存列表组合
-- `src/components/Counter.tsx`：Client Component 边界示例
+从这里开始：[从零实现路线](/practice/build-00-roadmap)。
 
